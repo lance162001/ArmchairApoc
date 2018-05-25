@@ -234,23 +234,7 @@ screen_x=1200
 screen_y=700
 
 Name=""
-long_message="""\nArmchairApoc
-\nA 2d arcade style survival game made in pygame (python 3)
-\nMade using PyGame:
-\n[Pygame Download](https://www.pygame.org/download.shtml)
-\n## Default Game Mode
-\n- Fireballs go through enemies, but stop at end of screen.
-\n- Fireballs go through the player.
-\n## Insanity Mode
-\n- Fireballs go through enemies, but stop at you and deal 1 damage
-\n- Fireballs go through one side of the screen to the other, similar to how the player and the enemies can move
-\n- After several seconds, enemies will increase in speed
-\n## Powerups
-\n- Wind -> Doubles player speed for 6 seconds
-\n- Fire -> Brings fireball cooldown to 1 second for 6 seconds
-\n- Health -> increases health by 1
-\n- High-Scores are saved by each name's best, and will be saved into a text file, locally per device."""
-print(long_message,"test")
+print("\t  Welcome to\n     ArmChair Apocalypse\n  The Retro Survival Shooter!\n\nArrow Keys to Move, Spacebar to Shoot")
 while Name == "":
 	print("!")
 	Name=input("Name? : ")
