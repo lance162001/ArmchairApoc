@@ -239,6 +239,8 @@ while Name == "":
 	game_mode=input("game_mode? : ")
 if game_mode == "insanity":
 	insanity_mode = True
+else:
+	insanity_mode = False
 
 pygame.init()
 screen = pygame.display.set_mode((screen_x,screen_y))
