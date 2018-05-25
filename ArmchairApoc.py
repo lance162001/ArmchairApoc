@@ -19,9 +19,6 @@ for i in highscores:
 	highscores[highscores.index(i)]=i.split(":")
 for i in highscores:
 	scores[i[0]]=int(i[1])
-	
-
-
 
 spritesPath=path.join(os.path.dirname(__file__),'sprites')
 def get_image(name):
@@ -505,4 +502,4 @@ if done == True and game_over == True:
 		highscore.write("\n")
 	print("LOG: Highscore Saved. Closing..")
 else:
-	print("LOG: Window Closed Before Game Over")
+	print("LOG: Window Closed Before Game Over. Closing...")

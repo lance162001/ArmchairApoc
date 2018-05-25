@@ -4,8 +4,6 @@ A 2d arcade style survival game made in pygame (python 3)
 Made using PyGame
 https://www.pygame.org/download.shtml
 
-
-
 Default Game Mode
 	Fireballs go through enemies, but stop at end of screen.
 Insanity Mode
@@ -16,4 +14,5 @@ Powerups:
 	Wind -> Doubles player speed for 6 seconds
 	Fire -> Brings fireball cooldown to 1 second for 6 seconds
 	Health -> increases health by 1
-High-Scores are saved by each name's best, and will be saved into a text file, locally per device
+
+High-Scores are saved by each name's best, and will be saved into a text file, locally per device.
