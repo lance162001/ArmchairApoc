@@ -1,0 +1,7 @@
+cool 2018-05-29 12:57:10.576435
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0

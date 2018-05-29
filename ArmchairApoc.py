@@ -3,11 +3,15 @@ import os
 from os import path
 import random
 import operator
+from datetime import datetime
 
 highscore=open(path.join(os.path.dirname(__file__),'highscores.txt'),('r'))
 highscore=highscore.read()
 highscore=highscore.split("\n")
-highscore.remove("")
+try:
+	highscore.remove("")
+except ValueError:
+	pass
 print("High Score List:\n-----------")
 for i in reversed(highscore):
 	print(i)
@@ -133,7 +137,6 @@ class Sniper():
 			self.beam_surface=pygame.Surface((25,750))
 
 	def dodge(self,fireball):
-		
 		if (fireball.image == fire_left and fireball.x - 300 < self.x) and (fireball.y < (self.y + sniper_0.get_height() + 20) and fireball.y > (self.y - 20)):
 			if self.choice == "+":
 				self.y+=self.speed
@@ -234,16 +237,18 @@ screen_x=1200
 screen_y=700
 
 Name=""
-print("\t  Welcome to\n     ArmChair Apocalypse\n  The Retro Survival Shooter!\n\nArrow Keys to Move, Spacebar to Shoot")
+log=[]
+log.append("LOG: Initial launch, name input")
+print("\t\tWelcome to\n\t    ArmChair Apocalypse\n\tThe Retro Survival Shooter!\n\nArrow Keys or WASD to Move, Spacebar to Shoot")
 while Name == "":
 	print("!")
 	Name=input("Name? : ")
-	game_mode=input("game_mode? : ")
+	game_mode=input("game_mode? (insanity,normal) : ")
 if game_mode == "insanity":
 	insanity_mode = True
 else:
 	insanity_mode = False
-
+log.append("LOG: Initializing display and sprites")
 pygame.init()
 screen = pygame.display.set_mode((screen_x,screen_y))
 clock = pygame.time.Clock()	
@@ -303,11 +308,13 @@ color=(255,255,255)
 player=Player()
 cooldown_time_length=360
 this2=0
-
-
+log.append("LOG: Variables and screen initialized")
+print("LOG: Variables and screen initialized")
 while not done:
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
+			log.append("LOG: X button clicked to end game")
+			print("LOG: X button clicked to end game")
 			done = True
 		if game_over:
 			if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
@@ -364,17 +371,15 @@ while not done:
 		Score_text = Score_font.render(Score_message, True, (255,255,255))
 		screen.blit(Score_text,
         (125 - Score_text.get_width() // 2, 24 - Score_text.get_height() // 2))
+		
 		pressed = pygame.key.get_pressed()
-		
-
-		
-		if pressed[pygame.K_UP]: 
+		if pressed[pygame.K_UP] or pressed[pygame.K_w]: 
 			player.move(main_up)
-		if pressed[pygame.K_DOWN]: 
+		if pressed[pygame.K_DOWN] or pressed[pygame.K_s]: 
 			player.move(main_down)
-		if pressed[pygame.K_LEFT]: 
+		if pressed[pygame.K_LEFT] or pressed[pygame.K_a]: 
 			player.move(main_left)
-		if pressed[pygame.K_RIGHT]: 
+		if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]: 
 			player.move(main_right)
 		player.update()
 		if pressed[pygame.K_SPACE] and cooldown == True:
@@ -388,9 +393,16 @@ while not done:
 			if drop.time > drop.lifespan:
 				del Drops[Drops.index(drop)]
 	elif done == False:
+		message=True
+		if message:
+			log.append("LOG: Game over, but screen open")
+			print("LOG: Game over, but screen open")
+			message=False
+			
 		pressed = pygame.key.get_pressed()
 		if pressed[pygame.K_ESCAPE]:
 			done=True
+			log.append("LOG: Escape button pressed to close game")
 			print("LOG: Escape button pressed to close game")
 		else:
 			this+=1
@@ -417,6 +429,7 @@ while not done:
 	
 	for enemy in Enemies:
 		if player.blit.colliderect(enemy.blit) == 1 and invul == False:
+			
 			invul = True
 			player.health-=1
 			if player.health == 0:
@@ -425,11 +438,14 @@ while not done:
 	for drop in Drops:
 		if player.blit.colliderect(drop.blit) == 1:
 			if drop.type == heart:
+				log.append("LOG: Heart powerup picked up")
 				player.health+=1
 			elif drop.type == fire_right:
+				log.append("LOG: Fire powerup picked up")
 				cooldown_time=60
 				cooldown_time_length=360
 			elif drop.type == wind:
+				log.append("LOG: Wind powerup picked up")
 				player.speed=6
 				cooldown_time_length=360
 			del Drops[Drops.index(drop)]
@@ -490,6 +506,7 @@ while not done:
 		clock.tick(60)
 pygame.quit()
 if done == True and game_over == True:
+	log.append("LOG: Saving Highscore")
 	print("LOG: Saving Highscore")
 	if Name in scores:
 		if scores[Name] < score:
@@ -504,6 +521,21 @@ if done == True and game_over == True:
 		highscore.write(":")
 		highscore.write(str(value))
 		highscore.write("\n")
+	log.append("LOG: Highscore Saved. Closing..")
 	print("LOG: Highscore Saved. Closing..")
 else:
+	log.append("LOG: Window Closed Before Game Over. Closing...")
 	print("LOG: Window Closed Before Game Over. Closing...")
+logFolder=path.join(os.path.dirname(__file__),"logs.txt")
+logFile=open(logFolder,("a+"))
+logFile.write(Name)
+logFile.write(" " + str(datetime.now()))
+logFile.write("\n")
+for i in log:
+	logFile.write(i)
+	logFile.write("\n")
+logFile.write(str(score))
+if insanity_mode:
+	logFile.write("Insanity")
+	logFile.write("\n")
+logFile.write("\n")
