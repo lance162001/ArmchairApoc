@@ -4,7 +4,7 @@ from os import path
 import random
 import operator
 from datetime import datetime
-
+scores={}
 highscore=open(path.join(os.path.dirname(__file__),'highscores.txt'),('r'))
 highscore=highscore.read()
 highscore=highscore.split("\n")
@@ -18,7 +18,6 @@ for i in reversed(highscore):
 print("-----------")
 highscores=highscore
 
-scores={}
 for i in highscores:
 	highscores[highscores.index(i)]=i.split(":")
 for i in highscores:
@@ -270,10 +269,8 @@ exit = [get_image('exit_0.png'),get_image('exit_1.png')]
 background = get_image('background.png')
 background=pygame.transform.scale(background,(screen_x,screen_y))
 
-
 invul_background = get_image('background2.png')
 invul_background=pygame.transform.scale(invul_background,(screen_x,screen_y))
-
 
 enemy_states=[get_image('enemy_0.png'),get_image('enemy_1.png'),get_image('enemy_2.png'),get_image('enemy_3.png'),get_image('enemy_4.png'),get_image('enemy_5.png'),get_image('enemy_6.png')]
 sniper_states=[get_image('sniper_0.png'),get_image('sniper_1.png'),get_image('sniper_2.png'),get_image('sniper_3.png'),get_image('sniper_4.png'),get_image('sniper_5.png')]
@@ -308,6 +305,7 @@ color=(255,255,255)
 player=Player()
 cooldown_time_length=360
 this2=0
+
 log.append("LOG: Variables and screen initialized")
 print("LOG: Variables and screen initialized")
 while not done:
@@ -392,8 +390,8 @@ while not done:
 			drop.update()
 			if drop.time > drop.lifespan:
 				del Drops[Drops.index(drop)]
-	elif done == False:
 		message=True
+	elif done == False:
 		if message:
 			log.append("LOG: Game over, but screen open")
 			print("LOG: Game over, but screen open")
@@ -465,6 +463,7 @@ while not done:
 			if temp.colliderect(player.blit) == 1:
 				del Fireballs[Fireballs.index(fireball)]
 				player.health-=1
+				log.append("LOG: Player hit by enemy")
 				if player.health == 0:
 					game_over=True
 	for enemy in Enemies:
@@ -491,6 +490,7 @@ while not done:
 		if (sniper.beam.colliderect(player.blit) == 1 and sniper.dangerous == True) and (invul == False):
 			invul = True
 			player.health-=1
+			log.append("LOG: Player hit by sniper")
 			if player.health == 0:
 				game_over=True
 		for fireball in Fireballs:
@@ -539,3 +539,4 @@ if insanity_mode:
 	logFile.write("Insanity")
 	logFile.write("\n")
 logFile.write("\n")
+input("press enter to exit")

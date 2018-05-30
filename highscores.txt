@@ -1,4 +1,5 @@
 example:1
 yes:5
 sam:40
+same:50
 Lance:141
