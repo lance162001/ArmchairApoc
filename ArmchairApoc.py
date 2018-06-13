@@ -4,6 +4,27 @@ from os import path
 import random
 import operator
 from datetime import datetime
+import atexit
+
+logFolder=path.join(os.path.dirname(__file__),"logs.txt")
+logFile=open(logFolder,("a+"))
+def save():
+	logFile.write(Name)
+	logFile.write(" " + str(datetime.now()))
+	logFile.write("\n")
+	print("End Score: ",score)
+	for i in log:
+		logFile.write(i)
+		logFile.write("\n")
+	logFile.write(str(score))
+	logFile.write("\n")
+	if insanity_mode:
+		logFile.write("Insanity")
+		logFile.write("\n")
+	logFile.write("\n")
+	logFile.close()
+atexit.register(save)
+
 scores={}
 highscore=open(path.join(os.path.dirname(__file__),'highscores.txt'),('r'))
 highscore=highscore.read()
@@ -231,6 +252,19 @@ class Fireball():
 			self.y=borderCheck(self.y,screen_y)
 		self.move()
 		self.update()
+
+class Wall():
+	def __init__(self,x,y,size,direction):
+		self.x=x
+		self.y=y
+		self.size=size
+		self.direction=direction
+		Walls.append(self)
+	def draw(self):
+		if self.direction == "vertical":
+			self.rect=pygame.draw.rect(screen,(255,255,255),[self.x,self.y,10,self.size],0)
+		elif self.direction == "horizontal":
+			self.rect=pygame.draw.rect(screen,(255,255,255),[self.x,self.y,self.size,10],0)
 		
 screen_x=1200
 screen_y=700
@@ -239,10 +273,11 @@ Name=""
 log=[]
 log.append("LOG: Initial launch, name input")
 print("\t\tWelcome to\n\t    ArmChair Apocalypse\n\tThe Retro Survival Shooter!\n\nArrow Keys or WASD to Move, Spacebar to Shoot")
+
 while Name == "":
-	print("!")
 	Name=input("Name? : ")
 	game_mode=input("game_mode? (insanity,normal) : ")
+
 if game_mode == "insanity":
 	insanity_mode = True
 else:
@@ -272,11 +307,16 @@ background=pygame.transform.scale(background,(screen_x,screen_y))
 invul_background = get_image('background2.png')
 invul_background=pygame.transform.scale(invul_background,(screen_x,screen_y))
 
+backgroundBright=get_image('backgroundBright.png')
+backgroundBright=pygame.transform.scale(backgroundBright,(screen_x,screen_y))
+
+
 enemy_states=[get_image('enemy_0.png'),get_image('enemy_1.png'),get_image('enemy_2.png'),get_image('enemy_3.png'),get_image('enemy_4.png'),get_image('enemy_5.png'),get_image('enemy_6.png')]
 sniper_states=[get_image('sniper_0.png'),get_image('sniper_1.png'),get_image('sniper_2.png'),get_image('sniper_3.png'),get_image('sniper_4.png'),get_image('sniper_5.png')]
 sniper_0=get_image('sniper_0.png')
 
 wind=get_image('wind_0.png')
+
 
 Game_Over_font = pygame.font.SysFont("comicsansms", 72)
 Game_Over_text = Game_Over_font.render("Game Over", True, (0, 128, 0))
@@ -300,15 +340,25 @@ Enemies=[Enemy()]
 Snipers=[]
 Fireballs=[]
 Drops=[]
+	
+Walls=[]#,Wall(300,300,300,"horizontal")]
+Wall(200,200,200,"vertical")
+Wall(100,100,100,"horizontal")
+
 fireball_continue=True
 color=(255,255,255)
 player=Player()
 cooldown_time_length=360
 this2=0
+noMoveX=""
+noMoveY=""
+
+temp2=0
 
 log.append("LOG: Variables and screen initialized")
 print("LOG: Variables and screen initialized")
 while not done:
+	
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			log.append("LOG: X button clicked to end game")
@@ -321,8 +371,12 @@ while not done:
 					pygame.quit()
 	
 	if game_over != True and done != True:
-		screen.fill((255,0,0))
-		screen.blit(background,(0,0))
+		screen.fill((0,0,0))
+		if invul:
+			screen.blit(backgroundBright,(0,0))
+		else:
+			screen.blit(background,(0,0))
+		
 		pygame.draw.rect(screen,(255,255,255),[0,0,170+25*player.health,40],2)
 		
 		#######
@@ -371,13 +425,13 @@ while not done:
         (125 - Score_text.get_width() // 2, 24 - Score_text.get_height() // 2))
 		
 		pressed = pygame.key.get_pressed()
-		if pressed[pygame.K_UP] or pressed[pygame.K_w]: 
+		if (pressed[pygame.K_UP] or pressed[pygame.K_w]) and (noMoveY != "up"): 
 			player.move(main_up)
-		if pressed[pygame.K_DOWN] or pressed[pygame.K_s]: 
+		if (pressed[pygame.K_DOWN] or pressed[pygame.K_s]) and (noMoveY != "down"): 
 			player.move(main_down)
-		if pressed[pygame.K_LEFT] or pressed[pygame.K_a]: 
+		if (pressed[pygame.K_LEFT] or pressed[pygame.K_a]) and (noMoveX != "left"): 
 			player.move(main_left)
-		if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]: 
+		if (pressed[pygame.K_RIGHT] or pressed[pygame.K_d]) and (noMoveX != "right"): 
 			player.move(main_right)
 		player.update()
 		if pressed[pygame.K_SPACE] and cooldown == True:
@@ -387,10 +441,24 @@ while not done:
 		for fireball in Fireballs:
 			fireball.refresh()
 		for drop in Drops:
-			drop.update()
+			
+			temp=0
+			if drop.time > int(drop.lifespan/2):
+				temp+=1
+				if temp == 2:
+					drop.update()
+			else:
+				drop.update()
 			if drop.time > drop.lifespan:
 				del Drops[Drops.index(drop)]
 		message=True
+		
+	#############
+	#Environment#
+	#############
+		for wall in Walls:
+			wall.draw()
+
 	elif done == False:
 		if message:
 			log.append("LOG: Game over, but screen open")
@@ -414,6 +482,9 @@ while not done:
 			(320 - Game_Over_text.get_width() // 2, 240 - Game_Over_text.get_height() // 2))
 			exit_button=screen.blit(exit[this2],(screen_x/2,screen_y/2))
 	
+
+	
+	
 	##############
 	#Interactions#
 	##############
@@ -421,6 +492,7 @@ while not done:
 	if invul:
 		Invul_timer+=1
 		pygame.draw.rect(screen,(255,255,255),[player.x,player.y,25,25],-1)
+		
 		if Invul_timer > 120:
 			Invul_timer=0
 			invul=False
@@ -482,7 +554,7 @@ while not done:
 					temp=Drop(enemy.x,enemy.y,wind)
 					Drops.append(temp)
 				score+=1
-		
+
 	for sniper in Snipers:
 		if sniper.blit.colliderect(player.blit) == 1:
 			del Snipers[Snipers.index(sniper)]
@@ -497,7 +569,27 @@ while not done:
 			if fireball.blit.colliderect(sniper.blit) == 1:
 				del Snipers[Snipers.index(sniper)]
 				score+=2
-				
+	temp=0
+	if temp2 != player.x:
+		print(player.x)
+	temp2=player.x
+	for wall in Walls:
+		if (wall.rect.colliderect(player.blit) == 1):
+			temp+=1
+			
+			
+			if player.x == (wall.x+wall.rect.width):
+				noMoveX="left"
+			elif (player.x+player.blit.width-5) == wall.x:
+				noMoveX="right"
+			if (player.y + player.blit.height-1) == wall.y:
+				noMoveY="down"
+			elif player.y == (wall.y+wall.rect.height-2):
+				noMoveY="up"
+	if temp == 0:
+		noMoveX=""	
+		noMoveY=""
+	
 	player.x=borderCheck(player.x,screen_x)
 	player.y=borderCheck(player.y,screen_y)	
 	
@@ -526,17 +618,4 @@ if done == True and game_over == True:
 else:
 	log.append("LOG: Window Closed Before Game Over. Closing...")
 	print("LOG: Window Closed Before Game Over. Closing...")
-logFolder=path.join(os.path.dirname(__file__),"logs.txt")
-logFile=open(logFolder,("a+"))
-logFile.write(Name)
-logFile.write(" " + str(datetime.now()))
-logFile.write("\n")
-for i in log:
-	logFile.write(i)
-	logFile.write("\n")
-logFile.write(str(score))
-if insanity_mode:
-	logFile.write("Insanity")
-	logFile.write("\n")
-logFile.write("\n")
 input("press enter to exit")
