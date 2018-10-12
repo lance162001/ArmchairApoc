@@ -1,10 +1,12 @@
-brian reddy aka the inspiration:0
+ reddy aka the inspiration:0
 example:1
 A high quality name :1
-j:2
 f:2
 fuck is my name'=:3
+aa:3
+Pierce:3
 lance shut up:5
+a:8
 ijhufrdtfyguhijoftrdtfyguh:8
 k:9
 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:9
@@ -15,6 +17,7 @@ nice :17
 A high quality name:17
 Charlie:19
 itjhiufdjigfofmgbmotjohijtriohjtroihjkgjboijhtorhijflgikjnlijbtroijbriojkgfjblkgfbjgflk:19
+.:19
 nick:25
 Chuck:27
 sam:40
@@ -22,6 +25,7 @@ same:50
 un lansh:51
 cool beans:52
 cool:82
+j:89
 ok:90
 Lance:141
 normal:256

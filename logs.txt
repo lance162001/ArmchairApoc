@@ -1584,3 +1584,711 @@ LOG: X button clicked to end game
 LOG: Window Closed Before Game Over. Closing...
 1
 
+f 2018-06-14 09:40:47.098015
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+a 2018-06-14 09:44:02.456547
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+3
+
+j 2018-06-14 09:47:20.597956
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Game over, but screen open
+LOG: Escape button pressed to close game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+0
+
+a 2018-06-14 09:47:21.839260
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Wind powerup picked up
+LOG: Fire powerup picked up
+LOG: Game over, but screen open
+LOG: Escape button pressed to close game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+8
+
+a 2018-06-14 11:48:07.289216
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Game over, but screen open
+LOG: X button clicked to end game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+2
+
+a 2018-06-14 11:49:37.518607
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Game over, but screen open
+LOG: X button clicked to end game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+1
+
+aa 2018-06-14 11:50:54.648547
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Wind powerup picked up
+LOG: Game over, but screen open
+LOG: X button clicked to end game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+3
+
+a 2018-06-14 11:52:10.561834
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+a 2018-06-14 11:53:52.722236
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Heart powerup picked up
+LOG: Game over, but screen open
+LOG: X button clicked to end game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+5
+
+a 2018-06-14 11:57:25.823903
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Wind powerup picked up
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+a 2018-06-14 12:05:03.967734
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+a 2018-06-14 12:06:24.395961
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+j 2018-06-14 12:07:44.370676
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+a 2018-06-14 12:08:58.548240
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+j 2018-06-14 12:15:09.851918
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+0
+
+a 2018-06-14 12:15:22.046201
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+0
+
+on 2018-06-14 12:16:21.968618
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+nice 2018-06-14 14:35:31.845571
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+nice 2018-06-14 14:36:32.158756
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+nice 2018-06-14 14:37:00.560529
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+0
+
+nice 2018-06-14 14:38:29.341614
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+nice 2018-06-14 14:41:44.246444
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+nice 2018-06-14 14:57:33.277907
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+nice 2018-06-14 15:04:06.404398
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+j 2018-06-15 08:42:46.103470
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+a 2018-06-15 08:46:17.567084
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+a 2018-06-15 08:47:34.413610
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+j 2018-06-15 08:54:30.251052
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+ok 2018-06-15 09:36:23.488915
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+ok 2018-06-15 09:38:14.349331
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+ok 2018-06-15 09:42:12.178915
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+ok 2018-06-15 09:42:25.524107
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+nice 2018-06-15 09:43:35.487358
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+nice 2018-06-15 09:51:08.422365
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+nice 2018-06-15 09:54:03.318128
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+nice 2018-06-15 09:56:01.626082
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+ni 2018-06-15 09:56:06.232677
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+0
+
+nie 2018-06-15 09:57:38.881415
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+niok 2018-06-15 09:59:10.749192
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+nice 2018-06-15 10:01:07.937297
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+ok 2018-06-15 10:07:31.155835
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+0
+
+nice 2018-06-15 10:07:57.319872
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+j 2018-09-11 15:08:04.901582
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+0
+
+f 2018-09-11 15:08:13.511505
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+0
+
+j 2018-09-11 15:11:58.853155
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Wind powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Wind powerup picked up
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Fire powerup picked up
+LOG: Heart powerup picked up
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Heart powerup picked up
+216
+
+j 2018-09-11 15:13:47.259724
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Player hit by enemy
+LOG: Heart powerup picked up
+LOG: Heart powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Player hit by sniper
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Heart powerup picked up
+LOG: Player hit by enemy
+LOG: Game over, but screen open
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+89
+Insanity
+
+Pierce 2018-09-11 15:21:00.381851
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Player hit by enemy
+LOG: Game over, but screen open
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+3
+Insanity
+
+j 2018-09-12 10:28:51.375823
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+0
+
+j 2018-09-12 10:32:58.928417
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Wind powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Wind powerup picked up
+LOG: Wind powerup picked up
+LOG: Wind powerup picked up
+LOG: Wind powerup picked up
+35
+
+. 2018-09-12 10:35:14.052962
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Wind powerup picked up
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Heart powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+28
+
+f 2018-09-12 10:35:48.277544
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+0
+
+. 2018-09-14 08:41:02.273570
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Player hit by enemy
+LOG: Game over, but screen open
+LOG: X button clicked to end game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+19
+Insanity
+
+j 2018-10-01 09:23:20.288555
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+1
+
+j 2018-10-09 08:47:04.524387
+ok 2018-10-09 08:48:25.372322
+ok 2018-10-09 08:52:11.593989
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+None
+
+ok 2018-10-09 08:53:32.882862
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+None
+
+ok 2018-10-09 08:54:25.796497
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 08:57:35.615039
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+None
+
+ok 2018-10-09 08:59:10.973029
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+None
+
+ok 2018-10-09 08:59:53.357299
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+None
+
+ok 2018-10-09 09:00:20.214693
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:00:36.360860
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:01:57.721673
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:04:16.718477
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:06:28.267250
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:06:48.887066
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:07:54.680965
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:24:13.823177
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:25:02.030470
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:26:02.828331
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-09 09:28:32.883056
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-12 09:18:12.990566
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+None
+
+ok 2018-10-12 09:18:45.370706
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-12 09:19:52.644463
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-12 09:22:59.348606
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ok 2018-10-12 09:25:26.123474
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Wind powerup picked up
+LOG: Game over, but screen open
+LOG: X button clicked to end game
+LOG: Saving Highscore
+LOG: Highscore Saved. Closing..
+None
+
+ok 2018-10-12 13:13:12.892025
+LOG: Initial launch, name input
+LOG: Initializing display and sprites
+LOG: Variables and screen initialized
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Wind powerup picked up
+LOG: Fire powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Wind powerup picked up
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Wind powerup picked up
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Player hit by sniper
+LOG: Fire powerup picked up
+LOG: Fire powerup picked up
+LOG: Player hit by sniper
+LOG: Wind powerup picked up
+LOG: Player hit by sniper
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Wind powerup picked up
+LOG: Heart powerup picked up
+LOG: Fire powerup picked up
+LOG: Player hit by sniper
+LOG: Fire powerup picked up
+LOG: Heart powerup picked up
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Wind powerup picked up
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: Player hit by sniper
+LOG: X button clicked to end game
+LOG: Window Closed Before Game Over. Closing...
+None
+
+ 2018-10-12 13:15:51.196858
+LOG: Initial launch, name input
+None

@@ -9,9 +9,15 @@ import atexit
 logFolder=path.join(os.path.dirname(__file__),"logs.txt")
 logFile=open(logFolder,("a+"))
 def save():
+	try:
+		temp=score
+	except NameError:
+		score=None
+		
 	logFile.write(Name)
 	logFile.write(" " + str(datetime.now()))
 	logFile.write("\n")
+	
 	print("End Score: ",score)
 	for i in log:
 		logFile.write(i)
@@ -85,7 +91,7 @@ class Player():
 	def update(self):
 		self.blit=screen.blit(self.direction,(self.x,self.y))
 		for i in range(self.health):
-			screen.blit(heart,(i*20+175,15))
+			screen.blit(heart,(i*int(heart.get_width())+175,15))
 			
 class Enemy():
 	def __init__(self):
@@ -159,7 +165,7 @@ class Sniper():
 	def dodge(self,fireball):
 		if (fireball.image == fire_left and fireball.x - 300 < self.x) and (fireball.y < (self.y + sniper_0.get_height() + 20) and fireball.y > (self.y - 20)):
 			if self.choice == "+":
-				self.y+=self.speed
+				self.y+=self.speed	
 			else:
 				self.y-=self.speed
 		elif (fireball.image == fire_right and fireball.x + 300 > self.x) and (fireball.y < (self.y + sniper_0.get_height() + 20) and fireball.y > (self.y - 20)):
@@ -215,7 +221,53 @@ class Sniper():
 		self.phaseChange()
 		self.update()
 		self.shoot()
-		
+
+class PacMan():
+	def __init__(self):
+		self.x=100
+		self.y=100
+		self.health=2
+		self.direction=pac_right
+		self.injured=False
+		self.image=pac_right
+		self.speed=4
+		self.state=0
+	def move(self):
+		if self.direction == pac_right:
+			if self.x > screen_x-100:
+				self.direction=pac_down
+			else:
+				self.x+=self.speed
+		if self.direction == pac_left:
+			if self.x < 100:
+				self.direction = pac_up
+			else:
+				self.x-=self.speed
+		if self.direction == pac_down:
+			if self.y > screen_y-100:
+				self.direction=pac_left
+			else:
+				self.y+=self.speed
+		if self.direction == pac_up:
+			if self.y < 100:
+				self.direction=pac_right
+			else:
+				self.y-=self.speed	
+	def update(self):
+		self.move()
+		if self.state > 30:
+			if self.state == 60:
+				self.state=0
+			if self.injured:
+				self.blit=screen.blit(self.direction[3],(self.x,self.y))
+			else:
+				self.blit=screen.blit(self.direction[1],(self.x,self.y))
+		elif self.injured:
+			self.blit=screen.blit(self.direction[2],(self.x,self.y))
+		else:
+			self.blit=screen.blit(self.direction[0],(self.x,self.y))
+		self.state+=1
+
 class Fireball():
 	def __init__(self):
 		self.x=player.x
@@ -260,14 +312,15 @@ class Wall():
 		self.size=size
 		self.direction=direction
 		Walls.append(self)
+		self.collisions={"left":False,"right":False,"up":False,"down":False}
 	def draw(self):
 		if self.direction == "vertical":
 			self.rect=pygame.draw.rect(screen,(255,255,255),[self.x,self.y,10,self.size],0)
 		elif self.direction == "horizontal":
 			self.rect=pygame.draw.rect(screen,(255,255,255),[self.x,self.y,self.size,10],0)
 		
-screen_x=1200
-screen_y=700
+screen_x=1366
+screen_y=768
 
 Name=""
 log=[]
@@ -315,6 +368,13 @@ enemy_states=[get_image('enemy_0.png'),get_image('enemy_1.png'),get_image('enemy
 sniper_states=[get_image('sniper_0.png'),get_image('sniper_1.png'),get_image('sniper_2.png'),get_image('sniper_3.png'),get_image('sniper_4.png'),get_image('sniper_5.png')]
 sniper_0=get_image('sniper_0.png')
 
+
+pac_right=[get_image('pacman_right.png'),get_image('pacman_right_closed.png'),get_image('pacman_right_injured.png'),get_image('pacman_right_closed_injured.png')]
+pac_down=[get_image('pacman_down.png'),get_image('pacman_down_closed.png'),get_image('pacman_down_injured.png'),get_image('pacman_down_closed_injured.png')]
+pac_left=[get_image('pacman_left.png'),get_image('pacman_left_closed.png'),get_image('pacman_left_injured.png'),get_image('pacman_left_closed_injured.png')]
+pac_up=[get_image('pacman_up.png'),get_image('pacman_up_closed.png'),get_image('pacman_up_injured.png'),get_image('pacman_up_closed_injured.png')]
+
+
 wind=get_image('wind_0.png')
 
 
@@ -332,7 +392,7 @@ Sniper_timer=0
 
 invul=False
 cooldown=True
-cooldown_time=600
+cooldown_time=480
 cooldown_time_default=cooldown_time
 done = False
 game_over = False
@@ -342,18 +402,28 @@ Fireballs=[]
 Drops=[]
 	
 Walls=[]#,Wall(300,300,300,"horizontal")]
-Wall(200,200,200,"vertical")
-Wall(100,100,100,"horizontal")
+#Wall(screen_x/2+100,screen_y/2+100,100,"vertical")
+#Wall(screen_x/2+100,screen_y/2+100,100,"horizontal")
+
+
 
 fireball_continue=True
 color=(255,255,255)
 player=Player()
+pac=PacMan()
+
 cooldown_time_length=360
 this2=0
-noMoveX=""
-noMoveY=""
+noMoveUp=False
+noMoveRight=False
+noMoveDown=False
+noMoveLeft=False
 
 temp2=0
+temp3=0
+
+DISPLAYSURF = pygame.display.set_mode((1366, 768), pygame.FULLSCREEN)
+
 
 log.append("LOG: Variables and screen initialized")
 print("LOG: Variables and screen initialized")
@@ -404,7 +474,7 @@ while not done:
 			for fireball in Fireballs:
 				sniper.dodge(fireball)
 			sniper.refresh()
-	
+		pac.update()
 	##################
 	#Character Inputs#
 	##################
@@ -425,13 +495,13 @@ while not done:
         (125 - Score_text.get_width() // 2, 24 - Score_text.get_height() // 2))
 		
 		pressed = pygame.key.get_pressed()
-		if (pressed[pygame.K_UP] or pressed[pygame.K_w]) and (noMoveY != "up"): 
+		if (pressed[pygame.K_UP] or pressed[pygame.K_w]) and (not noMoveUp): 
 			player.move(main_up)
-		if (pressed[pygame.K_DOWN] or pressed[pygame.K_s]) and (noMoveY != "down"): 
+		if (pressed[pygame.K_DOWN] or pressed[pygame.K_s]) and (not noMoveDown): 
 			player.move(main_down)
-		if (pressed[pygame.K_LEFT] or pressed[pygame.K_a]) and (noMoveX != "left"): 
+		if (pressed[pygame.K_LEFT] or pressed[pygame.K_a]) and (not noMoveLeft): 
 			player.move(main_left)
-		if (pressed[pygame.K_RIGHT] or pressed[pygame.K_d]) and (noMoveX != "right"): 
+		if (pressed[pygame.K_RIGHT] or pressed[pygame.K_d]) and (not noMoveRight): 
 			player.move(main_right)
 		player.update()
 		if pressed[pygame.K_SPACE] and cooldown == True:
@@ -499,11 +569,9 @@ while not done:
 	
 	for enemy in Enemies:
 		if player.blit.colliderect(enemy.blit) == 1 and invul == False:
-			
 			invul = True
 			player.health-=1
-			if player.health == 0:
-				game_over=True
+			
 
 	for drop in Drops:
 		if player.blit.colliderect(drop.blit) == 1:
@@ -535,7 +603,7 @@ while not done:
 			if temp.colliderect(player.blit) == 1:
 				del Fireballs[Fireballs.index(fireball)]
 				player.health-=1
-				log.append("LOG: Player hit by enemy")
+				log.append("LOG: Player hit by fireball")
 				if player.health == 0:
 					game_over=True
 	for enemy in Enemies:
@@ -569,27 +637,87 @@ while not done:
 			if fireball.blit.colliderect(sniper.blit) == 1:
 				del Snipers[Snipers.index(sniper)]
 				score+=2
-	temp=0
-	if temp2 != player.x:
-		print(player.x)
-	temp2=player.x
-	for wall in Walls:
-		if (wall.rect.colliderect(player.blit) == 1):
-			temp+=1
-			
-			
-			if player.x == (wall.x+wall.rect.width):
-				noMoveX="left"
-			elif (player.x+player.blit.width-5) == wall.x:
-				noMoveX="right"
-			if (player.y + player.blit.height-1) == wall.y:
-				noMoveY="down"
-			elif player.y == (wall.y+wall.rect.height-2):
-				noMoveY="up"
-	if temp == 0:
-		noMoveX=""	
-		noMoveY=""
+	for fireball in Fireballs:
+		if fireball.blit.colliderect(pac.blit) == 1:
+			if pac.injured:
+				pac.speed-=3
+			else:
+				pac.injured=True
+				pac.speed=round(pac.speed/2)
+			if pac.speed < 1:
+				pac.speed=1
+			if not insanity_mode:
+				del Fireballs[Fireballs.index(fireball)]
 	
+	for enemy in Enemies:
+		if enemy.blit.colliderect(pac.blit) == 1:
+			if pac.injured:
+				pac.injured=False
+			elif pac.speed < 8:
+				pac.speed+=1
+			del Enemies[Enemies.index(enemy)]
+
+	if player.blit.colliderect(pac.blit) == 1 and invul == False:
+		player.health-=2
+		invul=True
+	
+	if player.health < 1:
+		game_over=True
+	
+	####################
+	#Inactive Wall Code#
+	####################
+	if temp2 != player.x or temp3 != player.y:
+		print("Player X:",player.x," Player Y:",player.y)
+	temp2=player.x
+	temp3=player.y 
+	
+	
+	temp=0
+	noMoveUp=""
+	noMoveDown=""
+	noMoveLeft=""
+	noMoveRight=""
+	for wall in Walls:
+		if wall.rect.colliderect(player.blit) == 1:
+			temp+=1
+			if wall.rect.centery < player.blit.centery:
+				print("OK!")
+			if player.direction == main_left:
+				wall.collisions["left"]=1
+			elif player.direction == main_right:
+				wall.collisions["right"]=1
+			if player.direction == main_down:
+				wall.collisions["down"]=1
+			elif player.direction == main_up:
+				wall.collisions["up"]=1
+		for key,value in wall.collisions.items():
+			if value == 1:
+				print(key,value)
+				if key == "left":
+					noMoveLeft=True
+				elif key == "right":
+					noMoveRight=True
+				
+					
+				if key == "up":
+					noMoveUp=True
+				elif key == "down":
+					noMoveDown=True
+	if temp == 0:
+		for wall in Walls:
+			for key in wall.collisions:
+				wall.collisions[key]=0
+				print(wall.collisions[key])
+	temp=0
+	for i in noMoveDown,noMoveLeft,noMoveRight,noMoveUp:
+		if not i:
+			temp+=1
+	if temp==0:
+		print("they can't move!")
+	
+	
+
 	player.x=borderCheck(player.x,screen_x)
 	player.y=borderCheck(player.y,screen_y)	
 	
